@@ -1,11 +1,13 @@
 # Rack-Type Automatic Tool Changer Module
 The ATC Module is an optional part of the ProbeApp and can be activated with a license update.
 
+Follow the Instructions in the [ATC Setup Guide](ATCsetup.md) to configure and activate the Rack-ATC Module.
+
 The Rack-ATC Module supports Fork/Finger as well as Drop-In Type racks positioned along the X or Y Axis and on any end of the table.
 
 With the Rack-ATC Module activated, the Tool Library Manager will expand with a Bin# Column as well as ATC specific Function Keys.
 
-![](/images/pa133.PNG)
+![](/images/pa133.png)
 
 The Rack-ATC Module is doing its own Bin Management. No Parameter Changes in CNC12 to activate and configure ATC Bin functionality are needed.
 The ATC related CNC12 parameters can all be set to 0:
@@ -16,15 +18,15 @@ The ATC related CNC12 parameters can all be set to 0:
 
 There's one simple ATC Configuration screen to fill out. The Rack-ATC module will auto-generate all script files needed for proper ATC operations.
 
-![](/images/pa134.PNG)
+![](/images/pa134.png)
 
 
 ## M6 Tool Change Macro
 All that's needed in the Tool Change Macro *mfunc6.mac* to retrieve and store tools in the rack are two simple command lines:
 
 ```
-G65 "c:\cncm\probing\ATC_return_tool.cnc"            ;will return tool in spindle if needed
-G65 "c:\cncm\probing\ATC_get_tool.cnc"               ;will retrive the requested tool
+G65 "c:\cncm\probing\ATC_return_tool.cnc" ;will return tool in spindle if needed
+G65 "c:\cncm\probing\ATC_get_tool.cnc"    ;will retrive the requested tool
 
 ```
 
