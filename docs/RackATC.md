@@ -1,22 +1,17 @@
 # Rack-Type Automatic Tool Changer Module
 The ATC Module is an optional part of the ProbeApp and can be activated with a license update.
 
-The Rack-ATC Module supports Fork/Finger as well as Drop-In Type racks positioned along the X or Y Axis and on any end of the table.
+The Rack-ATC Module supports Fork/Finger as well as Drop-In Type racks positioned along the X or Y Axis and on the front, back, left or right side of the table.
 
 With the Rack-ATC Module activated, the Tool Library Manager will expand with a Bin# Column as well as ATC specific Function Keys.
 
-![](/images/pa133.PNG)
+![](/images/pa133.png)
 
 The Rack-ATC Module is doing its own Bin Management. No Parameter Changes in CNC12 to activate and configure ATC Bin functionality are needed.
-The ATC related CNC12 parameters can all be set to 0:
-
-* Parameter 6 = 0
-* Parameter 160 = 0
-* Parameter 161 = 0
 
 There's one simple ATC Configuration screen to fill out. The Rack-ATC module will auto-generate all script files needed for proper ATC operations.
 
-![](/images/pa134.PNG)
+![](/images/pa134.png)
 
 
 ## M6 Tool Change Macro
