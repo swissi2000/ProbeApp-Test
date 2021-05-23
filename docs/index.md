@@ -27,8 +27,8 @@ These are the currently supported Probing Cycles (Click the links to get detaile
 * [Bore Plate](BorePlate.md)
 * [Corner Plate](CornerPlate.md)
 * [Square Plate](InCorPlate.md)
-* [Tool Setter](ToolSetter.md)
-* [Tool Offsetter](ToolOffsetter.md)
+* [Tool Setter (use with Machines that don't have exchangable Tool Holders)](ToolSetter.md)
+* [Tool Library Manager](ToolOffsetter.md)
 
 The ProbeApp is using it's own, enhanced probing cycles that are based on the original Centroid probing cycles with some additional, new cycles.
 The enhancements of the ProbeApp probing cycles include fully qualified file names for all cycles, Axis Number independence, improved error handling and some Probe Retry features 
@@ -40,33 +40,30 @@ The enhancements of the ProbeApp probing cycles include fully qualified file nam
 # ProbeApp Customization
 There are two places where customizations can be done:
 
-* [Configuration Button on the Main Screen of the ProbeApp](configuration.md)
+* [Configuration Button on the Main Screen of the ProbeApp (Gear Icon Bottom Left)](configuration.md)
 * [probe_initialize.cnc File](probe_initilize.md)
 
 Click the links above for a description of the customization options.
 
 
-# ProbeApp Functionality dependend on CNC12 Version
+# ProbeApp automatically adjusts Functionality dependend on CNC12 Version
 The ProbeApp checks the version of CNC when being launched and adjusts functionality automatically to the restrictions of the different CNC12 versions.
 
-This is the Main Screen of the ProbeApp when used with the Free version of CNC12:
+Note that the Free Version of CNC12 is no longer supported by the ProbeApp.
 
-![](/images/pa059.PNG)
-
-ProbeApp provides the same Probing Cycles for the CNC12 Pro and Digitizing Version.
+ProbeApp provides the same Probing Cycles for the CNC12 Pro and Digitizing/Ultimate Version.
 The only difference is the number of supported WCS:
 
-* CNC12 Free: Only WCS #1 (G54) is available
 * CNC12 Pro: WCS #1 - #6 (G54 - G59) are available
-* CNC12 Digi: WCS #1 - #18 (E1 - E18 where E1 - E6 is the same as G54 - G59) 
+* CNC12 Digi/Ultimate: WCS #1 - #18 (E1 - E18 where E1 - E6 is the same as G54 - G59) 
 
 
 # Metric versus Imperial Units
 If no Job File is running, CNC12 will always default to the configured Machine Units which is G20 for an Imperial and G21 for a Metric system.
 When the ProbeApp is launched while no job is running, the controller will already be set to the default machine units.
 
-When the ProbeApp is being launched within a running job file (e.g the tool change file mfunc6.mac calls M58 to touch off the new tool with the ProbeApp) it is possible that the running job does not run in the default machine units.
-In such a case the ProbeApp will force the machine into the default machine units to complete the probing cycle and switch the units back after the probing cycle has completed.
+When the ProbeApp is being launched within a running job file (e.g the ProbeApp is being launched by the Tool Change command file mfunc6.mac) it is possible that the running job does not run in the default machine units.
+In such a case the ProbeApp will force the machine into the default machine units to complete the probing cycle and switch the units back after the probing cycle has finished.
 
 If the active units don't match the machine units when the ProbeApp generated Probing Cycle is executed by CNC, a warning message will be displayed
 
@@ -79,62 +76,6 @@ That means that the ProbeApp will **ALWAYS** run in the machines default units a
 The ProbeApp is a Windows Application that runs outside of CNC12 and supports Touch Screen Input. 
 By default the ProbeApp uses M58 to integrate with CNC12, that means a customized mfunc58.mac will be copied to the c:\cncm folder and the M58 Button on the VCP 2.0 will be replaced with a Probing Icon.
 
-```javascript
-;--------------------------------------------------------------------------------
-; Filename: mfunc58.mac 
-; M58 macro
-; Description: Provides Probing Routines when used with program ProbeApp.exe 
-; Author: swissi
-;---------------------------------------------------------------------------------
-If #50001                                        ;Prevent lookahead from parsing past here
-If #4201 || #4202 Then GOTO 1000                 ;Skip macro if graphing or searching
-
-N10
-#33999 = #4006                                   ;Store active units
-G65 "c:\cncm\probing\probe_initialize.cnc" A99   ;Run Probe Initialization to check for Setup Errors (A99 = Don't check Inputs)
-If #50001                                        ;Prevent lookahead from parsing past here
-G65 "c:\cncm\probing\probe_save_parameters.cnc"  ;Save CNC12 Parameters to make them available in ProbeApp
-If #50001                                        ;Prevent lookahead from parsing past here
-;---------------------------------------------------------------------------------
-;Possible ProbeApp Startup Options to directly open a specific Probing Cycle
-;---------------------------------------------------------------------------------
-M130 "C:\cncm\probing\ProbeApp.exe"               ;Startup ProbeApp Main Screen
-;M130 "C:\cncm\probing\ProbeApp.exe -ToolSetter"   ;Startup ProbeApp directly with Universal Tool Setter Screen
-;M130 "C:\cncm\probing\ProbeApp.exe -CornerPlate"  ;Startup ProbeApp directly with Corner Plate Screen
-;M130 "C:\cncm\probing\ProbeApp.exe -InCorPlate"   ;Startup ProbeApp directly with Square Plate Screen
-;M130 "C:\cncm\probing\ProbeApp.exe -BorePlate"    ;Startup ProbeApp directly with Bore Plate Screen
-
-#30000 = 0                                         ;No probing Cycle saved when this remains at 0 
-N100
-G4 P1
-
-;+=============================================
-;|                     Probing Cycle in Progress!"
-;|
-;|                 Press "Cycle Cancle" to terminate
-;+=============================================
-M200 "Press Cycle Start to begin Probing Cycle\nPress Cycle Cancel to Exit"
-
-
-
-
-
-IF #50001 ;sync
-G65 "c:\cncm\ncfiles\probing_cycle.cnc"
-
-; restore active unit of meassure after probing
-IF #33999 == 20 THEN G20 ELSE G21
-
-; display message if no Probing Cycle has been found
-IF #30000 == -1 THEN M200 "No Probing Cycle found!\n\nPress Cycle Start to Continue, Cycle Cancel to Abort"
-
-; display Error Message if Probing Cycle was aborted
-IF #30000 > 1 THEN G65 "#301\probe_error.cnc" A[#30000]
-
-IF #30000 == -99 Then GOTO 10  ; -99 indicates to reopen ProbeApp after Cycle
-#29500 = 0  ; reset ProbeApp Startup Overwrite flag
-N1000	;End of Macro
-```
 The ProbeApp and all related probing cycle files will be installed to the newly created folder
 ```
 c:\cncm\probing
