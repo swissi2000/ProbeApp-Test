@@ -1,5 +1,5 @@
 # Rack-Type Automatic Tool Changer Module
-The ATC Module is an optional part of the ProbeApp and can be activated with a license update.
+The ATC Module is integrated into the ProbeApp-Tool Library Manager and can be activated with a license update.
 
 The Rack-ATC Module supports Fork/Finger as well as Drop-In Type racks positioned along the X or Y Axis and on the front, back, left or right side of the table.
 
@@ -7,7 +7,7 @@ With the Rack-ATC Module activated, the Tool Library Manager will expand with a 
 
 ![](/images/pa133.png)
 
-The Rack-ATC Module is doing its own Bin Management. No Parameter Changes in CNC12 to activate and configure ATC Bin functionality are needed.
+The Rack-ATC Module has its own, built-in Bin Management. No Parameter Changes in CNC12 to activate and configure ATC Bin functionality are needed.
 
 There's one simple ATC Configuration screen to fill out. The Rack-ATC module will auto-generate all script files needed for proper ATC operations.
 
@@ -32,7 +32,8 @@ All Tool related parameters like Bin#, Diameter, Height Offsets can all be manag
 When a script is requesting a Tool that's not in the Rack, there's an option to load the Tool manually or to open the Tool Library Manager.
 This allows to open the Tool Library Manager while the job is still active in a M6 Tool Change hold. 
 The Tool Library Manager then allows to re-arrange Tools in the Rack as needed and those changes will instantly be active.
-If the Tool Library Manager is exited after the re-arrangemt of the Tools, the jjob file will continue with the new settings.
+If the Tool Library Manager is exited after the re-arrangemt of the Tools, the job file will continue with the new Tool Bin settings.
+This is very convenient if a job requires more tools than can fit into the rack.
 
 This functionality is not possible with the standard ATC macros.
 
