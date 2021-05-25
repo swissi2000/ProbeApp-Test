@@ -122,6 +122,22 @@ The currently configured CNC12 probing speeds are listed on the right side of th
 The Tool Offset Manager main screen has a Return check box that will tell the ProbeApp to re-open after data has been saved or tools have been measured.
 This check box here in the configuration screen configures if the Return check box on the Tool Offset Manager main screen should be checked by default or not.
 
+### Special TP measurement
+
+![](/images/pa139.png)
+
+Measuring a Height Offset of a Touch Probe with a Tool Touch Off device can be problematic with some TT devices. 
+Depending on the spring load of the TP and the TT it can be either device that is generating the trigger signal when the TP is touched off on the TT. 
+With most probing devices this is not a problem as the axial pre-travel is negligable.
+However there are some TT devices like the popular, wireless DT02 that has a significant pre=travel distance that can't be ignored.
+
+The **Special TP measurement** selection offers two methods to handle those situations when the TT has significant pre-travel"
+
+* The **Deduct TT-Pre-Travel Distance** option allows to compensate for the TT's pre-travel. Just measure how much the TT travels from the extended position to the point when the trigger signal is beeing generated and enter that distance into the input field. Any touch off with a TP on top of the TT will now be corrected with the Pre-Travel-Distance.
+
+* The **Manual touch off at base of TT** option will not touch off the TP on top of the TT and the user will be asked to touch off the TP on the surface the TT is standing on.
+The TT Height value will then be used to calculate the correct Height Offset. Note that the Height value needed here is not the height of the extended TT. This must be the Height from the point where the TT is generating the trigger signal to the base of the TT.
+
 ### Button Functions
 
 ![](/images/pa117.png)

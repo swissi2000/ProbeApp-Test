@@ -69,7 +69,7 @@ These are the possible values:
 #29500 = 9  : OutCor
 #29500 = 10 ; Single
 #29500 = 11 ; Slot
-#29500 = 12 ; ToolOffsetter
+#29500 = 12 ; ToolOffsetter (Tool Library Manager)
 #29500 = 13 ; ToolSetter
 #29500 = 14 ; TripleCorner
 #29500 = 15 ; Web
@@ -102,6 +102,7 @@ G53 Z0                                      ;Default
 ;G30 G91 Z0
 ;G30 P3 G91 Z0
 ;G30 P4 G91 Z0
+G90
 
 ;------------------------------------------------------------------------------
 ; Display Tool Change Message
