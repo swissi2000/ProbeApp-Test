@@ -34,7 +34,7 @@ Press the **ATC Configuration** Button to open  the ATC-Configuration Screen.
 
 ![](/images/pa136.png)
 
-Fill out the configuration parameters. If you need Help with any of the Parameters, select the *?* on the top right of the Configuration Screen and then hoover with the *?* over the Input-field you need Help with and a Balloon Help Message will give more information about what values are expected.
+Fill out the configuration parameters. If you need Help with any of the Parameters, select the *?* on the top right of the Configuration Screen and then hoover with the *?* over the Input-field you need Help with and a Balloon Help Message will provide more information.
 
 If the Spindle requires Tool Orientation, check the box **Requires Tool Orientation** and enter the required commands.
 
@@ -170,7 +170,7 @@ Until you have confirmed that all your Bin Locations are accurate and all the ot
 
 I suggest that you turn the Feedrate Overwrite all the way down and always keep a finger on the **Cycle Cancel** or the **Emergency Stop** button.
 
-Also Note that the **Feed Hold** Button is inactive while CNC12 is in a M6 Tool Change command so all the moves that occure in a M6 Tool Change cannot be stopped with the **Feed Hold** button you have to use **Cycle Cancel** to stop the move.
+Also Note that the **Feed Hold** Button is inactive while CNC12 is in a M6 Tool Change command so all the moves that occure in a M6 Tool Change cannot be stopped with the **Feed Hold** button. You have to use **Cycle Cancel** to stop the move.
 
 ### Testing the ATC Functionality
 * Assign all Bin#'s to a Tool# in the Bin# Column. To mix things up a little you can assign Tool #10 to Bin #1, Tool #20 to Bin #2 etc. until you have all Bins assigned to a tool.
@@ -185,35 +185,37 @@ Also Note that the **Feed Hold** Button is inactive while CNC12 is in a M6 Tool 
 
 * If there is a Tool Touch Off device configured on the system, try the **Measure** button of a tool to measure the Height Offset value of the tool. The cycle will use the fix TT if one is available, otherwise the movable TT will be used and you will be asked to jog the tool over the movable TT.
 
-* If the system has a fix TT, load a tool in each Bin and make sure the tools are currectly assigned to the Bin# in the Tool Library Manager. Then use the **Measure all Tools in ATC** button to measure the Height Offset of all tools in the rack.
+* If the system has a fix TT, load a tool in each Bin and make sure the tools are correctly assigned to the Bin# in the Tool Library Manager. Then use the **Measure all Tools in ATC** button to measure the Height Offset of all tools in the rack.
 
 * Make sure Tool #1 and #2 are assigned to a Bin# and that those tools are in the assigned Bins. Then use the **Load Tool** button to load T1. Tool in Spindle should no show T1. If that's the case, exit the **Tool Library Manager**.
 
 ### Testing M6 ATC Tool Change Functionality
 Open the MDI from the CNC12 Main screen.
 
-* In the MDI, enter a Tool Change command for Tool #1 (T1 M6) and Press Cycle Start. T1 should already be in the spindle from the test step before. The M6 Tool Change macro should recognize that T1 is already in the spindle and the M6 macro should just finish without any tool strore/retrieval function.
+* In the MDI, enter a Tool Change command for Tool #1 (T1 M6) and Press Cycle Start. T1 should already be in the spindle from the test step before. The M6 Tool Change macro should recognize that T1 is already in the spindle and the M6 macro should just finish without any tool return/retrieval function.
 
-* Enter a Tool Change for Tool #2 (T2 M6) and press Cycle Start. The machine should now return T1 to its Bin and then load T2. Make sure any other action configured in the M6 macro like parking and retrieving a Dust Shoe, are occuring and in the correct sequence.
+* Enter a Tool Change for Tool #2 (T2 M6) and press Cycle Start. The machine should now return T1 to its Bin and then load T2. Make sure any other action configured in the M6 macro like parking and retrieving a Dust Shoe etc, are occuring and in the correct sequence.
 
-* Enter a Tool Change for a Tool # that is not in the rack. Tool #2 should be returned to its Bin and Message will be shown that the requested tool is not in the rack. You will have the option to do a manual tool change or to open the Tool Library Manager where you can re-arrange Tool# to Bin# assignments. When you exit the Tool Library Manager, the tool change will continue with the new Bin assigments.
+* Enter a Tool Change for a Tool # that is not in the rack. Tool #2 should be returned to its Bin and Message will be shown that the requested tool is not in the rack. You will have the option to do a manual tool change or to open the Tool Library Manager where you can re-arrange Tool# to Bin# assignments. Select the option to open the Tool Library Manager. Now assign a Bin# to that tooll and place that tool into the specified Bin. Exit the Tool Library Manager, the tool change should now continue, retrieving the tool from the now assigned Bin.
+
+* Enter again a Tool Change for a Tool # that is not in the rack. This time select the option of a manual tool change and verify if the manual tool change is happening correctly at the configured location.
 
 If this all works correctly, the Rack-ATC Module should be ready for real action.
 
 ## Changing ATC Configuration Parameters
-If any adjustments to the Rack-ATC Module need to be made, jjust press the **ATC Configuration** Button on the **Tool Library Manager** screen.
+If any adjustments to the Rack-ATC Module need to be made, just press the **ATC Configuration** Button on the **Tool Library Manager** screen.
 
 Any changes made to the ATC Configuration Parameters will instantly be active after pressing the **Save Configuration** button.
 
 Note that changing the number of Bins will reset all Bin Coordinate Data in the table.
 
 If the check box **ATC Functions enabled** is unchecked, all ATC Functions will be disabled and all Bin# will be reset to 0 which will force all manual Tool Changes.
-In order to fully remove the Rack-ATC Module, the M6 Tool Change Macro mfunc6.mac should be exchanges with a macro that's setup for manual tool changes and the Rack-ATC Module license needs to be removed.
+In order to fully remove the Rack-ATC Module, the M6 Tool Change Macro mfunc6.mac should be exchanged with a macro that's setup for manual tool changes and the Rack-ATC Module license needs to be removed.
 
 ## Other Tool Library Manager Functionality
 The Rack-ATC Module is an extension of the **ProbeApp-Tool Library Manager***.
 
-For all the functionality and configuration of the **Tool Library Manager** ouside of the ATC Functionality, consult the [Tool Library Manager](ToolOffsetter.md) Chapter. 
+For details about all the non-ATC Module related functionality and configuration of the **Tool Library Manager**, consult the [Tool Library Manager](ToolOffsetter.md) Chapter. 
 
 
 

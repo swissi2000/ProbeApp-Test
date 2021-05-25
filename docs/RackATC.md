@@ -7,7 +7,7 @@ With the Rack-ATC Module activated, the Tool Library Manager will expand with a 
 
 ![](/images/pa133.png)
 
-The Rack-ATC Module has its own, built-in Bin Management. No Parameter Changes in CNC12 to activate and configure ATC Bin functionality are needed.
+The Rack-ATC Module has its own, built-in Bin Management. No Parameter Changes are required in CNC12 to activate and configure ATC Bin functionality.
 
 There's one simple ATC Configuration screen to fill out. The Rack-ATC module will auto-generate all script files needed for proper ATC operations.
 
@@ -27,15 +27,13 @@ Additional logic as described in the [ATC Setup Guide](ATCsetup.md) can be added
 
 ## Advantages of the Rack-ATC Module over standard ATC functionality
 
-All Tool related parameters like Bin#, Diameter, Height Offsets can all be managed from one screen, the Tool Library Management screen.
+All Tool related parameters like Bin#, Diameter, Height Offsets can all be managed from one screen.
 
-When a script is requesting a Tool that's not in the Rack, there's an option to load the Tool manually or to open the Tool Library Manager.
+When a Tool is requested that's not in the Rack, there's an option to load the Tool manually or to open the Tool Library Manager.
 This allows to open the Tool Library Manager while the job is still active in a M6 Tool Change hold. 
-The Tool Library Manager then allows to re-arrange Tools in the Rack as needed and those changes will instantly be active.
-If the Tool Library Manager is exited after the re-arrangemt of the Tools, the job file will continue with the new Tool Bin settings.
+It is then possible to re-arrange Tools in the Rack as needed and those changes will instantly be active.
+After exiting the Tool Library Manager, the job file will continue with the new Tool Bin arrangements.
 This is very convenient if a job requires more tools than can fit into the rack.
-
-This functionality is not possible with the standard ATC macros.
 
 Consult the [ATC Setup Guide](ATCsetup.md) for a list of all the Features and how to enable them.
 
