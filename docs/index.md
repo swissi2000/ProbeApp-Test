@@ -9,11 +9,15 @@
 
 The ProbeApp is a collection of probing cycles that integrate with the Centroid CNC12 control software.
 
-**New with Version 3 is the availability of an optional Rack-Style Automatic Tool Changer Module. Check out the Rack-ATC Module Chapter for more Details.**
-* [Rack-ATC Module](RackATC.md)
+## What's new in Version 3
+* Support of all Versions of CNC12, not just Acorn
+* [Touch Probe Calibration](TPcalibration.md)
+* [Precision Probing Method](PrecisionProbing.md)
+* [Touch Probe Trip Map](TripMap.md)
+* [TP touch off on TT Cycle Improvements](TPonTT.md)
+* [Optional Rack-ATC Module](RackATC.md)
 
-These are the currently supported Probing Cycles (Click the links to get detailed information on each cycle):
-
+## Supported Probing Cycles
 * [Bore](Bore.md)
 * [Boss](Boss.md)
 * [Slot](Slot.md)
