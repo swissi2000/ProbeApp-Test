@@ -12,7 +12,7 @@ The ProbeApp is a collection of probing cycles that integrate with the Centroid 
 ## What's new in Version 3
 * Support of all Versions of CNC12, not just Acorn
 * [Touch Probe Calibration](TPcalibration.md)
-* [Precision Probing Method](PrecisionProbing.md)
+* [Precision Probing Method](PrecisionCalibration.md)
 * [Touch Probe Trip Map](TripMap.md)
 * [TP touch off on TT Cycle Improvements](TPonTT.md)
 * [Optional Rack-ATC Module](RackATC.md)
