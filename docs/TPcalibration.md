@@ -20,7 +20,7 @@ If you wonder how much deflection a trip force of 50g can cause to your stylus, 
 
 If you want to get a better picture about the trigger characteristic of you Touch Probe, I recommend to create a Trip Map as descibed in [this Chapter](TripMap.md).
 
-The Trip Map will help to find the best position in the Touch Probe Trigger Pattern that has the least pre-travel variance in the X+/X- and Y+//Y- direction.
+The Trip Map will help to find the best position in the Touch Probe Trigger Pattern that has the least pre-travel variance in the X+/X- and Y+//Y- direction. It will also give you a pretty good picture of what overall accuracy you can expect from your touch probe.
 
 If the pre-travel distance in the four main directions X+/X- and Y+/Y- varies significantly, you can consider the **Precision Calibration Method** as described in [this Chapter](PrecisionCalibration.md) as this method will compensate for the pre-travel distance in the four main directions individually.
 
@@ -34,7 +34,7 @@ This calibration cycle has the following Input fields:
 
 ### Calibration Bore Diameter
 This is the diameter that's usually engraved on the Bore Gauge. The units of the Bore Gauge can be selected. 
-This will allow to use a mm Gauge on an Imperial machine (or vice verse) without having to convert the diameter manually to match the machines units.
+This will allow to use a mm Gauge on an Imperial machine (or vice versa) without having to convert the diameter manually to match the machines units.
 
 ### Probing Speed
 The default fast an slow probing feed rates are pre-populated. Only change these feed rates if you want to experiment if you can get more precise results by reducing the feed rate of if you can increase the feed rate without impacting the accuracy.
@@ -56,7 +56,7 @@ The selection on Priority on Dimension or Average will give you the option how t
 #### Priority on Dimension
 With this option, only measurements along the Y-axis are being used to average the pre-travel distance to calculate the pre-travel compensated probe tip diameter.
 
-This option will give yoou the most accurate bore measurements and all other touch probe measurements along the Y-axis but there could be potentially a larger error for measurements along the X-axis.
+This option will give you the most accurate bore measurements and all other touch probe measurements along the Y-axis but there could be potentially a larger error for measurements along the X-axis.
 
 #### Priority on Average
 With this option, the calibration cycle will use all measurements in the X and Y axis to average out the pre-travel in all four directions to calculate the pre-travel compensated probe tip diameter.
@@ -111,7 +111,10 @@ Pressing **Cycle Start** again will initiate a Bore measurement cycle with the n
 
 Compared to the **Priority on Dimension** method above, the error between the X and Y axis measurement is still the same with 63 micrometers as expected, but the overall measuring error is now more averaged between the X and Y axis measurement. 
 
+## Consideration
+If the difference between X and Y axis measurements is significant, you can consider the **Precision Calibration Method** as described in [this Chapter](PrecisionCalibration.md).
 
+This method will compensate for the pre-travel distance in the four main directions individually and might give you overall more accurate results.
 
 
 [Back](index.md)
