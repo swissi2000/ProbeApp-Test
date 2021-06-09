@@ -40,7 +40,7 @@ Here's an example of a **Standards Map** of a Centroid KP-3 Touch Probe:
 
 See Chapter **Standard Map Description** below about the details of this map.
 
-The **Detailed Map** shows the Trip-Bandwidth in more detail:
+The **Detailed Map** shows the Trip-Bandwidth in finer resolution:
 
 ![](/images/pa168.png)
 
@@ -53,10 +53,10 @@ See Chapter **Detailed Map Description** below about the details of this map.
 See the sections below for a description of the input fields for the Trip Map Cycle:
 
 ### Touch Probe Name
-This is just a Text-Field that will be printed on top of the Trip Map.
+Free Text-Field that will be printed on top of the Trip Map.
 
 ### Notes
-This is also just a Text-Field that will be printed as comment on top of the Trip Map right underneath the **Touch Probe Name** text.
+Free Text-Field that will be printed as comment on top of the Trip Map right underneath the **Touch Probe Name** text.
 
 ### Gauge Bore Diameter
 This is the diameter that's usually engraved on the Ring Gauge. The units of the Ring Gauge can be selected. 
@@ -66,7 +66,7 @@ This will allow to use a mm Gauge on an Imperial machine (or vice versa) without
 This is the actual (not the calibration adjusted) diameter of the probe's stylus tip.
 
 ### Trip Map Resolution
-This defines the step-size in degrees at which measurements will be taken around the 360 degree ring gauge. The lowest value is 1 degree and the highest is 45 degree. The finer the step-size,, the finer the Trip Map will be.
+This defines the step-size in degrees at which measurements will be taken around the 360 degree ring gauge. The lowest value is 1 degree and the highest is 45 degree. The finer the step-size, the finer the Trip Map will be.
 
 Note: The step-size must be a value between 1 - 45 that fits evenly within 360 degrees. As an example, the step-size can be 22.5 degrees or 11.25 degrees but 25 degrees would be rejected.
 
@@ -78,7 +78,7 @@ In order to create an accurate Trip Map, the Touch Probe must be placed at the e
 
 Using the Touch Probe itself to find the bore center is a quick way to create a first Trip Map but it is recommended to use a Center Finder for more accurate results as the Touch Probe might not find the exact bore center.
 
-Using a Center Finder will also visualize any tramming issues you might have on your machine. A Center Finder usually extends much further from the spindle than the Touch Probe. That means the spindle Z-axis position is further up the Z-column when the bore center is indicated. When the Center Finder is then replaced with the Touch Probe,, the spindle needs to be lowered to get the Touch Probe to probing height. If the Z-axis doesn't move exactly perpendicular to the machine table, the touch probe will move out of center when the spindle is lowered and that will show up on the Trip Map like this:
+Using a Center Finder will also visualize any tramming issues you might have on your machine. A Center Finder usually extends much further from the spindle than the Touch Probe. That means the spindle Z-axis position is further up the Z-column when the bore center is indicated. When the Center Finder is then replaced with the Touch Probe, the spindle needs to be lowered to get the Touch Probe to probing height. If the Z-axis doesn't move exactly perpendicular to the machine table, the touch probe will move out of center when the spindle is lowered and that will show up on the Trip Map like this:
 
 ![](/images/pa171.png)
 
@@ -90,7 +90,7 @@ Trip the touch probe manually and the loop will end with a confirmation message 
 Pressing this button will open the last created Trip Map. If no Trip Map has been done before, a message will say so.
 
 ### Show Saved TripMap Button
-Pressing this button will show a list of all the Trip Maps that have been saved before and allows to display a specific map.
+Pressing this button will show a list of all the Trip Maps that have been saved before and allows to open and display a specific Trip Map.
 
 ### START
 After all data has been entered, press the **START** button to initiated the Trip Map cycle.
@@ -102,7 +102,7 @@ A message will be displayed to place the Touch Probe in the approximate center o
 
 ![](/images/pa172.png)
 
-After pressing Cycle Start, a standard Bore Cycle will run to set the Touch Probe at the center of the gauge bore and then start the Trip Map measuring cycles in the selected step size, starting at the 9 o'clock position going clockwise.
+After pressing Cycle Start, a standard Bore Cycle will run first to set the Touch Probe at the center of the gauge bore and then start the Trip Map measuring cycles in the selected step size, starting at the 9 o'clock position going clockwise.
 
 #### Option Center Indicator
 A message will be displayed to use a Center Finder to place the center of the spindle at the exact center of the gauge bore. After the center has been indicated, replace the Center Finder with the Touch Probe and lower the probe tip into the gauge bore at probing height. Make sure you don't move the X and Y axis after the center has been indicated with the Center Finder before you start the Trip Map cycle.
@@ -117,9 +117,9 @@ After all measuring cycles have been recorded, the Standard Trip Map will be dis
 
 ![](/images/pa167.png)
 
-* Center white area. This represents the gauge bore. Note that the dimension of the bore is not proportional in size compared to the blue pre-travel and the green trip bandwidth.
+* Center white area. This represents the gauge bore. Note that the dimension of the bore is not proportional in size compared to the blue pre-trip-travel and the green trip bandwidth.
 
-* Blue Pre-Trip-Travel Bandwidth. This marks the shortest distance the touch probe tip will overtravel the bore before a trip signal is recognized by the control. In this example, the minimum pre-travel distance is 0.037mm.
+* Blue Pre-Trip-Travel Bandwidth. This marks the shortest distance the touch probe tip will overtravel the bore before a trip signal is recognized by the control. In this example, the minimum pre-trip-travel distance is 0.037mm.
 
 * Green Trip-Bandwidth. This area marks the bandwidth from the shortest to the longest distance from the bore center before a trip signal was recorded. In this example, the variance between the shortest and longest measurement is 0.04mm. This variance cannot be compensated for with a probe calibration process. If you now just take the medium of the trip-bandwidth, the average probing accuracy cannot be better than 0.02mm. This can be slightly improved by using the average of all the pre-trip-travel measurements rather than just the medium of the error.
 
@@ -142,7 +142,7 @@ After all measuring cycles have been recorded, the Standard Trip Map will be dis
 
 * Blue Pre-Trip-Travel Bandwidth. This marks the shortest distance the touch probe tip will overtravel the bore before a trip signal is recognized by the control. In this example, the minimum pre-travel distance is 37 micrometers which can also be seen on the printed scale.
 
-* Green Trip-Bandwidth. This area marks the bandwidth from the shortest to the longest distance from the bore center before a trip signal was recorded. In this example, the variance between the shortest and longest measurement is 4o micrometers. This variance cannot be compensated for with a probe calibration process. If you now just take the medium of the trip-bandwidth, the average probing accuracy cannot be better than 0.02mm. This can be slightly improved by using the average of all the pre-trip-travel measurements rather than just the medium of the error. Interesting on this map is to see how the 3-leg trip machanism does impact the trip pattern as the pre-trip-travel tends to be much longer in the leg-areas. Use this map to find the best position of your Touch Probe where the pre-trip-travel variance in the X+/X- and Y+/Y- direction is the lowest.
+* Green Trip-Bandwidth. This area marks the bandwidth from the shortest to the longest distance from the bore center before a trip signal was recorded. In this example, the variance between the shortest and longest measurement is 40 micrometers. This variance cannot be compensated for with a probe calibration process. If you now just take the medium of the trip-bandwidth, the average probing accuracy cannot be better than 0.02mm. This can be slightly improved by using the average of all the pre-trip-travel measurements rather than just the medium of the error. Interesting on this map is to see how the 3-leg trip machanism does impact the trip pattern as the pre-trip-travel tends to be much longer in the leg-areas. Use this map to find the best position of your Touch Probe where the pre-trip-travel variance in the X+/X- and Y+/Y- direction is the most uniform. If you can't find a position that has an acceptable uniformity in all 4 directions, you might be able to improve probing accuracy by using the **Precision Probing Method** that uses individual pre-trip-travel corrections in the X+/X- and Y+/Y- directions. See Chapter [Precision Touch Probe Calibration](PrecisionCalibration.md) for more details.
 
 * Black Trip Line. This is the line that connects all recorded trip points with each other
 
