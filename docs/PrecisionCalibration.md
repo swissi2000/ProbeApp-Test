@@ -51,7 +51,6 @@ This button will only show if an ID Precision Calibration process has been done 
 
 This screen does allow to fine-tune offset parameters if needed and save the new offsets.
 
-
 ### START
 Here's now where the **Precision Calibration** process differs significantly from the **Standard Calibration** process. 
 
@@ -68,7 +67,7 @@ After pressing the **Yes** buttton, each of the steps will be initiated with a m
 
 ![](/images/pa158.png)
 
-After the Bore Cycle has finished the spinndle will be at the bore center position as accurately as the TP's precision this allows.
+After the Bore Cycle has finished the spindle will be at the bore center position as accurately as the TP's precision this allows.
 
 ![](/images/pa159.png)
 

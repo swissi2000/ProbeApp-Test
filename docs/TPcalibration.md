@@ -28,12 +28,12 @@ If the pre-travel distance in the four main directions X+/X- and Y+/Y- varies si
 
 ![](/images/pa147.png)
 
-The best way to calibrate a Touch Probe is to use a Bore Gauge that has a very precise known diameter.
+The best way to calibrate a Touch Probe is to use a Ring Gauge that has a very precise known diameter.
 
 This calibration cycle has the following Input fields:
 
 ### Calibration Bore Diameter
-This is the diameter that's usually engraved on the Bore Gauge. The units of the Bore Gauge can be selected. 
+This is the diameter that's usually engraved on the Ring Gauge. The units of the Ring Gauge can be selected. 
 This will allow to use a mm Gauge on an Imperial machine (or vice versa) without having to convert the diameter manually to match the machines units.
 
 ### Probing Speed
