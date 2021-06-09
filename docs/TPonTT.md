@@ -1,7 +1,6 @@
 # TP touch off on TT Cycle Improvements
 
-## Description
-Most Touch Probes (TP) and Tool Touch Off devices (TT) don't have any significant pre-trip-travel in the axial direction so touching off a TP on top of the TT is not a problem in many cases as it doesn't matter if the TP or the TT is generating the trip signal as long as both devices are connected at the same time.
+Most Touch Probes (TP) and Tool Touch Off (TT) devices don't have any significant pre-trip-travel in the axial direction so touching off a TP on top of the TT is not a problem in many cases as it doesn't matter if the TP or the TT is generating the trip signal as long as both devices are connected at the same time.
 
 If your control isn't wired to allow the simultanous connection of the TP and TT, then you need to figure out which device has the weaker spring load as this will be the device that will generate the trip signal and just connect that device. You can test that by placing the TP by hand on top of the TT, push down the TP slightly and see if the stylus of the TP moves up or if the plate of the TT moves down. In most cases, the TP will have the weaker spring than the TT.
 
